@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane fx:id="background" onMouseClicked="#dragStage" prefHeight="500.0" prefWidth="817.0" styleClass="background" stylesheets="@../../../../css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.c1tad31.eminence.admin.AdminController">
+    <children>
+        <!-- Header -->
+        <AnchorPane prefWidth="817.0" styleClass="header">
+            <Pane prefHeight="68.0" prefWidth="818.0">
+                <children>
+                    <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="55.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../imgs/profile.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </Pane>
+        </AnchorPane>
+
+        <!-- Navigation Buttons -->
+        <VBox layoutX="4.0" layoutY="67.0" prefHeight="427.0" prefWidth="170.0" spacing="10">
+            <Pane prefHeight="465.0" prefWidth="170.0">
+                <children>
+                    <Button fx:id="adminBtn" layoutX="-3.0" layoutY="76.0" onAction="#handleAdmin" prefHeight="46.0" prefWidth="176.0" styleClass="dashboardButtons" text="Admin" />
+                    <Button fx:id="dashboardBtn" layoutX="-3.0" layoutY="128.0" onAction="#handleDashboard" prefHeight="46.0" prefWidth="176.0" styleClass="dashboardButtons" text="Dashboard" />
+                    <Button fx:id="stresshubBtn" layoutX="-3.0" layoutY="181.0" onAction="#handleStressHub" prefHeight="46.0" prefWidth="176.0" styleClass="dashboardButtons" text="Stress Hub" />
+                    <Button fx:id="toolsBtn" layoutX="-3.0" layoutY="234.0" onAction="#handleTools" prefHeight="46.0" prefWidth="176.0" styleClass="dashboardButtons" text="Tools" />
+                    <Button fx:id="settingsBtn" layoutX="-3.0" layoutY="385.0" onAction="#handleSettings" prefHeight="46.0" prefWidth="176.0" styleClass="dashboardButtons" text="Settings" />
+                    <Label layoutX="21.0" layoutY="37.0" styleClass="dashboardLabel" text="Eminence | V1" textFill="WHITE" />
+                </children>
+            </Pane>
+        </VBox>
+
+        <!-- Close and Minimize Buttons -->
+        <HBox layoutX="750.0" layoutY="5.0" spacing="5">
+            <Button onAction="#handleClose" prefHeight="0.0" prefWidth="32.0" styleClass="utilButtons" text="X" />
+            <Button onAction="#handleMinimize" styleClass="utilButtons" text="-" />
+        </HBox>
+
+        <!-- Line Separator -->
+        <Line endX="-32.19999694824219" endY="403.6000061035156" layoutX="209.0" layoutY="90.0" startX="-32.19999694824219" startY="-87.5999984741211" stroke="WHITE" />
+    </children>
+</AnchorPane>

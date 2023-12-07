@@ -1,0 +1,71 @@
+.background {
+    -fx-background-color: #030305;
+            /*    3f4045*/
+    -fx-border-radius: 5px;
+    -fx-border-color: #9687F3;
+}
+
+.dashboardLabel {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-family: "Source Code Pro";
+}
+
+.utilButtons {
+    -fx-background-color: #030305;
+    -fx-border-color: #9687F3;
+    -fx-border-radius: 5px;
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+}
+
+.dashboardButtons {
+    -fx-background-color: #030305;
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+    -fx-font-family: "Source Code Pro";
+    -fx-border-radius: 5px;
+    -fx-border-color: #9687F3;
+}
+
+.infoLabels {
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-family: "Source Code Pro";
+    -fx-text-alignment: center;
+    -fx-border-radius: 5px;
+    -fx-border-width: 2px;
+    -fx-padding: 10px;
+    -fx-border-color: #9687F3;
+}
+
+.textFields {
+    -fx-background-color: #030305;
+    -fx-text-fill: white;
+    -fx-font-family: "Source Code Pro";
+    -fx-border-radius: 5px;
+    -fx-border-color: #9687F3;
+    -fx-font-size: 15px;
+    -fx-prompt-text-fill: white;
+}
+
+.checkBox {
+    -fx-background-color: #030305;
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+    -fx-font-family: "Source Code Pro";
+}
+
+.closeButton {
+    -fx-background-color: #030305;
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+    -fx-font-family: "Source Code Pro";
+}
+
+.closeButton:hover {
+    -fx-background-color: RED;
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+    -fx-font-family: "Source Code Pro";
+}
