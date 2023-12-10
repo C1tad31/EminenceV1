@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<Pane fx:id="announcementsPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" prefHeight="314.0" prefWidth="318.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.c1tad31.eminence.announcements.AnnouncementsController">
+    <children>
+        <!-- Your existing content for announcements pane -->
+        <ImageView fx:id="announcementsLogo" fitHeight="54.0" fitWidth="44.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../imgs/announcements.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="announcementsTitle" alignment="CENTER" layoutX="69.0" layoutY="14.0" prefHeight="45.0" prefWidth="237.0" styleClass="infoLabels" text="Announcement Title" />
+        <Label fx:id="announcementsContent" alignment="CENTER" layoutX="22.0" layoutY="75.0" prefHeight="223.0" prefWidth="285.0" styleClass="infoLabels" text="Announcement Content" />
+    </children>
+</Pane>

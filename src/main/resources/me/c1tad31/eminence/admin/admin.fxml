@@ -1,51 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 
 <AnchorPane fx:id="background" onMouseClicked="#dragStage" prefHeight="500.0" prefWidth="817.0" styleClass="background" stylesheets="@../../../../css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.c1tad31.eminence.admin.AdminController">
     <children>
         <!-- Header -->
-        <AnchorPane prefWidth="817.0" styleClass="header">
-         <Pane prefHeight="68.0" prefWidth="818.0">
-            <children>
-                  <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="55.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-                      <image>
-                          <Image url="@../../../../imgs/profile.png" />
-                      </image>
-                  </ImageView>
-            </children>
-         </Pane>
+        <AnchorPane prefHeight="10.0" prefWidth="818.0" styleClass="header">
+            <Pane prefHeight="56.0" prefWidth="818.0">
+                <children>
+                    <Button layoutX="758.0" layoutY="10.0" minWidth="46.0" onAction="#handleClose" prefHeight="30.0" prefWidth="46.0" styleClass="utilButtons" text="X" />
+                    <Button layoutX="698.0" layoutY="10.0" minWidth="53.0" onAction="#handleMinimize" prefHeight="30.0" prefWidth="53.0" styleClass="utilButtons" text="-" />
+               <ComboBox editable="true" layoutX="332.0" layoutY="17.0" prefHeight="30.0" prefWidth="227.0" promptText="USER" styleClass="background" />
+                </children>
+            </Pane>
         </AnchorPane>
 
         <!-- Navigation Buttons -->
-        <VBox layoutX="4.0" layoutY="67.0" prefHeight="427.0" prefWidth="170.0" spacing="10">
-         <Pane prefHeight="465.0" prefWidth="170.0">
-            <children>
-                  <Button fx:id="adminBtn" layoutX="-3.0" layoutY="76.0" onAction="#handleAdmin" prefHeight="46.0" prefWidth="176.0" styleClass="dashboardButtons" text="Admin" />
-                  <Button fx:id="dashboardBtn" layoutX="-3.0" layoutY="128.0" onAction="#handleDashboard" prefHeight="46.0" prefWidth="176.0" styleClass="dashboardButtons" text="Dashboard" />
-                  <Button fx:id="stresshubBtn" layoutX="-3.0" layoutY="181.0" onAction="#handleStressHub" prefHeight="46.0" prefWidth="176.0" styleClass="dashboardButtons" text="Stress Hub" />
-                  <Button fx:id="toolsBtn" layoutX="-3.0" layoutY="234.0" onAction="#handleTools" prefHeight="46.0" prefWidth="176.0" styleClass="dashboardButtons" text="Tools" />
-                  <Button fx:id="settingsBtn" layoutX="-3.0" layoutY="385.0" onAction="#handleSettings" prefHeight="46.0" prefWidth="176.0" styleClass="dashboardButtons" text="Settings" />
-                  <Label layoutX="21.0" layoutY="37.0" styleClass="dashboardLabel" text="Eminence | V1" textFill="WHITE" />
-            </children>
-         </Pane>
+        <VBox layoutX="-1.0" layoutY="-2.0" prefHeight="502.0" prefWidth="192.0" spacing="10">
+            <Pane prefHeight="502.0" prefWidth="192.0">
+                <children>
+                    <Label layoutX="34.0" layoutY="14.0" styleClass="dashboardLabel" text="Eminence | V1" textFill="WHITE" />
+                    <Button fx:id="dashboardBtn" layoutX="5.0" layoutY="213.0" onAction="#handleDashboard" prefHeight="46.0" prefWidth="183.0" styleClass="dashboardButtons" text="DASHBOARD" />
+                    <Button fx:id="stresshubBtn" layoutX="5.0" layoutY="259.0" onAction="#handleStressHub" prefHeight="46.0" prefWidth="183.0" styleClass="dashboardButtons" text="STRESSHUB" />
+                    <Button fx:id="toolsBtn" layoutX="5.0" layoutY="305.0" onAction="#handleTools" prefHeight="46.0" prefWidth="183.0" styleClass="dashboardButtons" text="TOOLS" />
+                    <Button fx:id="adminBtn" layoutX="5.0" layoutY="351.0" onAction="#handleAdmin" prefHeight="46.0" prefWidth="183.0" styleClass="dashboardButtons" text="ADMIN" />
+                    <Button fx:id="settingsBtn" layoutX="5.0" layoutY="397.0" onAction="#handleSettings" prefHeight="46.0" prefWidth="183.0" styleClass="dashboardButtons" text="SETTINGS" />
+                    <ImageView fitHeight="72.0" fitWidth="91.0" layoutX="61.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../imgs/img.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="10.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../imgs/dashboard1.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="9.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../imgs/wifi1.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="10.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../imgs/support1.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="9.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../imgs/security1.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="13.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../imgs/cog-wheel-silhouette2.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </Pane>
         </VBox>
 
         <!-- Close and Minimize Buttons -->
-        <HBox layoutX="750.0" layoutY="5.0" spacing="5">
-            <Button onAction="#handleClose" prefHeight="0.0" prefWidth="32.0" styleClass="utilButtons" text="X" />
-            <Button onAction="#handleMinimize" styleClass="utilButtons" text="-" />
-        </HBox>
-
-        <!-- Line Separator -->
-        <Line endX="-32.19999694824219" endY="403.6000061035156" layoutX="209.0" layoutY="90.0" startX="-32.19999694824219" startY="-87.5999984741211" stroke="WHITE" />
+        <HBox layoutX="750.0" layoutY="5.0" spacing="5" />
+      <Label layoutX="192.0" layoutY="87.0" prefHeight="46.0" prefWidth="227.0" styleClass="infoLabels" text="USERNAME:" textFill="WHITE" />
+      <Label layoutX="293.0" layoutY="89.0" prefHeight="42.0" prefWidth="124.0" styleClass="adminInfoLabels" text="Label" textFill="#ece2e2" />
+      <Label layoutX="193.0" layoutY="140.0" prefHeight="46.0" prefWidth="227.0" styleClass="infoLabels" text="USERNAME:" textFill="WHITE" />
+      <Label layoutX="290.0" layoutY="141.0" prefHeight="42.0" prefWidth="124.0" styleClass="adminInfoLabels" text="Label" textFill="#ece2e2" />
+      <Label layoutX="192.0" layoutY="189.0" prefHeight="46.0" prefWidth="227.0" styleClass="infoLabels" text="USERNAME:" textFill="WHITE" />
+      <Label layoutX="288.0" layoutY="190.0" prefHeight="42.0" prefWidth="124.0" styleClass="adminInfoLabels" text="Label" textFill="#ece2e2" />
+      <Label layoutX="191.0" layoutY="242.0" prefHeight="46.0" prefWidth="227.0" styleClass="infoLabels" text="USERNAME:" textFill="WHITE" />
+      <Label layoutX="288.0" layoutY="243.0" prefHeight="42.0" prefWidth="124.0" styleClass="adminInfoLabels" text="Label" textFill="#ece2e2" />
+      <Label layoutX="584.0" layoutY="90.0" prefHeight="46.0" prefWidth="227.0" styleClass="infoLabels" text="USERNAME:" textFill="WHITE" />
+      <Label layoutX="677.0" layoutY="91.0" prefHeight="42.0" prefWidth="136.0" styleClass="adminInfoLabels" text="Label" textFill="#ece2e2" />
+      <Label layoutX="584.0" layoutY="140.0" prefHeight="46.0" prefWidth="227.0" styleClass="infoLabels" text="USERNAME:" textFill="WHITE" />
+      <Label layoutX="678.0" layoutY="141.0" prefHeight="42.0" prefWidth="136.0" styleClass="adminInfoLabels" text="Label" textFill="#ece2e2" />
+      <Label layoutX="584.0" layoutY="189.0" prefHeight="46.0" prefWidth="227.0" styleClass="infoLabels" text="USERNAME:" textFill="WHITE" />
+      <Label layoutX="674.0" layoutY="190.0" prefHeight="42.0" prefWidth="136.0" styleClass="adminInfoLabels" text="Label" textFill="#ece2e2" />
+      <Label layoutX="583.0" layoutY="243.0" prefHeight="46.0" prefWidth="227.0" styleClass="infoLabels" text="USERNAME:" textFill="WHITE" />
+      <Label layoutX="676.0" layoutY="243.0" prefHeight="42.0" prefWidth="124.0" styleClass="adminInfoLabels" text="Label" textFill="#ece2e2" />
+      <Button layoutX="439.0" layoutY="65.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="124.0" styleClass="dashboardButtons" text="EDIT USER" />
+      <Button layoutX="439.0" layoutY="111.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="124.0" styleClass="dashboardButtons" text="ADD USER" />
+      <Button layoutX="440.0" layoutY="155.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="124.0" styleClass="dashboardButtons" text="DELETE USER" />
+      <Button layoutX="424.0" layoutY="251.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="154.0" styleClass="dashboardButtons" text="STOP ALL ATTACKS" />
+      <Button layoutX="439.0" layoutY="200.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="124.0" styleClass="dashboardButtons" text="STOP ATTACK" />
+      <TextField layoutX="276.0" layoutY="302.0" prefHeight="46.0" prefWidth="192.0" promptText="ANNOUNCEMENT TITLE" styleClass="textFields" />
+      <TextField layoutX="276.0" layoutY="364.0" prefHeight="46.0" prefWidth="192.0" promptText="ANNOUNCEMENT TEXT" styleClass="textFields" />
+      <Button layoutX="288.0" layoutY="432.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="183.0" styleClass="dashboardButtons" text="SEND" />
+      <TextField layoutX="488.0" layoutY="302.0" prefHeight="46.0" prefWidth="192.0" promptText="WEBHOOK EMBED TITLE" styleClass="textFields" />
+      <TextField layoutX="488.0" layoutY="364.0" prefHeight="46.0" prefWidth="198.0" promptText="WEBHOOK EMBED TEXT" styleClass="textFields" />
+      <Button layoutX="486.0" layoutY="432.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="183.0" styleClass="dashboardButtons" text="SEND" />
     </children>
 </AnchorPane>

@@ -1,11 +1,10 @@
 package me.c1tad31.eminence.login;
 
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,15 +12,23 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import me.c1tad31.eminence.announcements.AnnouncementsController;
 import me.c1tad31.eminence.utils.SceneController;
 import org.bson.Document;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Getter
+@Setter
+@Data
 public class LoginController implements Initializable {
 
     private final SceneController sceneController = new SceneController();
+    private final AnnouncementsController announcementController = new AnnouncementsController();
 
     @FXML
     public Button loginCloseBtn;
@@ -55,7 +62,7 @@ public class LoginController implements Initializable {
     private ImageView logoBottomRight;
 
     @FXML
-    private TextField usernameText;
+    public TextField usernameText;
 
     @FXML
     private PasswordField passwordText;
@@ -100,9 +107,12 @@ public class LoginController implements Initializable {
             System.out.println(userName + " " + passWord);
 
             String uri = "mongodb+srv://citadel:Haloreach1!@eminence.wdxfv2a.mongodb.net/?retryWrites=true&w=majority";
+            MongoClientSettings settings = MongoClientSettings.builder()
+                    .applyConnectionString(new com.mongodb.ConnectionString(uri))
+                    .build();
 
-            try (MongoClient client = new MongoClient(new MongoClientURI(uri))) {
-                MongoDatabase database = client.getDatabase("users");
+            try (MongoClient mongoClient = MongoClients.create(settings)) {
+                MongoDatabase database = mongoClient.getDatabase("users");
                 MongoCollection<Document> collection = database.getCollection("user");
 
                 FindIterable<Document> found = collection.find(Filters.eq("username", userName));
@@ -112,7 +122,7 @@ public class LoginController implements Initializable {
                     Document userDocument = found.first();
                     String storedPassword = userDocument.getString("password");
 
-                    if (passWord.equals(storedPassword)) {
+                    if (verifyPassword(storedPassword, passWord)) {
                         // Passwords match, login successful
                         sceneController.sceneDetails(event, "dashboard/dashboard.fxml", 817, 500);
                     } else {
@@ -124,7 +134,7 @@ public class LoginController implements Initializable {
                         alert.show();
                     }
                 } else {
-                    // Username not found
+                    // Username isn't found
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Eminence V1");
                     alert.setHeaderText("Username Error");
@@ -133,7 +143,7 @@ public class LoginController implements Initializable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                // Handle exception appropriately (e.g., show error message)
+                // Handle exception appropriately (e.g., show an error message)
             }
         } else {
             System.out.println("Username or password text fields are null or empty.");
@@ -154,6 +164,17 @@ public class LoginController implements Initializable {
         alert.setTitle("Eminence V1");
         alert.show();
 //        sceneController.sceneDetails(event, "register/register.fxml", 671, 398); need to implement a way to login on the panel and still use the same db
+    }
+
+    private static boolean verifyPassword(String hashedPassword, String inputPassword) {
+        Argon2 argon2 = Argon2Factory.create();
+        try {
+            return argon2.verify(hashedPassword, inputPassword);
+        } catch (Exception e) {
+            // Handle exception
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

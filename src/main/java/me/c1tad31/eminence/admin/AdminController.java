@@ -42,27 +42,27 @@ public class AdminController implements Initializable {
 
     @FXML
     public void handleDashboard(ActionEvent event) throws IOException {
-        sceneController.sceneDetails(event, "me/c1tad31/eminence/dashboard/dashboard.fxml", 817, 500);
+        sceneController.sceneDetails(event, "dashboard/dashboard.fxml", 817, 500);
     }
 
     @FXML
     public void handleStressHub(ActionEvent event) throws IOException {
-        sceneController.sceneDetails(event, "me/c1tad31/eminence/stresshub/stresshub.fxml", 817, 500);
+        sceneController.sceneDetails(event, "stresshub/stresshub.fxml", 817, 500);
     }
 
     @FXML
     public void handleTools(ActionEvent event) throws IOException {
-        sceneController.sceneDetails(event, "me/c1tad31/eminence/tools/tools.fxml", 817, 500);
+        sceneController.sceneDetails(event, "tools/tools.fxml", 817, 500);
     }
 
     @FXML
     public void handleAdmin(ActionEvent event) throws IOException {
-        sceneController.sceneDetails(event, "me/c1tad31/eminence/admin/admin.fxml", 817, 500);
+        sceneController.sceneDetails(event, "admin/admin.fxml", 817, 500);
     }
 
     @FXML
     public void handleSettings(ActionEvent event) throws IOException {
-        sceneController.sceneDetails(event, "me/c1tad31/eminence/settings/settings.fxml", 817, 500);
+        sceneController.sceneDetails(event, "settings/settings.fxml", 817, 500);
     }
 
     @Override

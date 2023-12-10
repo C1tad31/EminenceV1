@@ -21,10 +21,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("login/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("login/mfxlogin.fxml"));
 
         // Create a transparent scene
-        Scene scene = new Scene(root, 671, 398);
+        Scene scene = new Scene(root, 832, 477);
         scene.setFill(Color.TRANSPARENT);
 
         // Set stage properties
